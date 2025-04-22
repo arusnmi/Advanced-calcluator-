@@ -1,5 +1,6 @@
 import sympy as sp
-Calc_choice=input("Enter the calcluator you want (basic, finction, calclus): ")
+import math
+Calc_choice=input("Enter the calcluator you want (basic, function, calclus): ")
 
 if Calc_choice == "basic":
     print(eval(input("Enter the calcluation: ")))
@@ -23,3 +24,34 @@ if Calc_choice=="calclus":
         print("Invalid choice")
 
 
+if Calc_choice=="function":
+    print("Welcome to the function calculator, select the number for the function you want to input")
+    print ("1.linear")
+    print ("2.quadratic")
+    function_choice = input("Enter the function you want(converth the function varible to x): ")
+    x = sp.symbols('x')
+    if function_choice=="1":
+        a=float(input("enter the value of a(coffecant of x):" ))
+        c_input= float(input("enter the value of c:" ))
+        if a!=0:
+            soloution= -c_input/a
+            print("Soloution for x: ",soloution)
+    elif function_choice=="2":
+        a=float(input("enter the value of a(coffecant of x^2):" ))
+        b=float(input("enter the value of b(coffecant of x):" ))
+        c_input= float(input("enter the value of c:" ))
+        d=b**2-4*a*c_input
+        if a!=0:
+            
+            if d>0:
+                soloution1=(-b+math.sqrt(d))/(2*a)
+                soloution2=(-b-math.sqrt(d))/(2*a)
+                print("Soloution1: ",soloution1)
+                print("Soloution2: ",soloution2)
+            elif d==0:
+                soloution=-b/(2*a)
+                print("Soloution: ",soloution)
+            else:
+                print("No real soloution")
+        else :
+            print("Invalid input")
