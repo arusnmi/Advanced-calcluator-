@@ -16,13 +16,20 @@ def calc_choice(event):
             equ_solver=eval(basic_enter.get())
             solvedlbl=Label(root, text="The answer is: " + str(equ_solver))
             solvedlbl.grid(column=0,row=5)
-        
+            if basic_enter.get() =="/" and basic_enter.get()=="0":
+
+                solvedlbl=Label(root, text="You cannot devide by 0")
+                solvedlbl.grid(column=0,row=5)
+            if basic_enter.get() != "0" or basic_enter.get() != "1"or basic_enter.get() != "2"or basic_enter.get() != "3"or basic_enter.get() != "4"or basic_enter.get() != "5"or basic_enter.get() != "6"or basic_enter.get() != "7"or basic_enter.get() != "8"or basic_enter.get() != "9"or basic_enter.get() != "+"or basic_enter.get() != "-"or basic_enter.get() != "*"or basic_enter.get() != "/":
+                solvedlbl=Label(root, text="please enter a valid charecter")
+                solvedlbl.grid(column=0,row=5)
         basiclbl=Label(root, text="welcome to the basic calcluator, please input your equation into the text box with +=add,-=subtract, *=multply, /=divide: ")
         basiclbl.grid(column=0,row=2)
         basic_enter=Entry(root, width=50)
         basic_enter.grid(column=0,row=3)
         basicbtn=Button(root, text="solve", command=equ_solve)
         basicbtn.grid(column=0,row=4)
+
 
 
     if Calc_selected.get() == 'function':
